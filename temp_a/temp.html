@@ -1,4 +1,4 @@
-﻿<html>
+<html>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -24,8 +24,7 @@
         <div class="swiper-wrapper">
             <section class="swiper-slide maka-page-0">
                 <div class="page-bg-0">
-                    <img src="images/page-bg-0.src" class="ig">
-                </div>
+                <img src="images/page-bg-0.src" class="ig"></div>
                 <div class="maka-eleCanvas maka-eleCanvas-0">
                     <div class="caq">
                         <div class="fa-an-a" data-animal="{animal:[{names:'fadeInUp 1500ms ease 1000ms both running'}]}">
@@ -35,7 +34,7 @@
                         <div class="fa-an-b" data-animal="{animal:[{names:'fadeInUp 1500ms ease 300ms both running'}]}"> </div>
                     </div>
                     <div class="mw-8">
-                        <div class="fa-an-c" data-animal="{animal:[{names:'fadeInDown 1500ms ease 300ms both running'}]}"> </div>
+                        <div class="fa-an-c" data-animal="{animal:[{names:'fadeInDown 1500ms ease 300ms both running'}]}" > </div>
                     </div>
                     <div class="mw-9">
                         <div class="fa-an-d" data-animal="{animal:[{name:'fadeInLeft',delay:1.5,duration:0.6}]}"> </div>
@@ -59,14 +58,14 @@
                         <div class="fa-an-k" data-animal="{animal:[{name:'fadeInRight',delay:1,duration:2.5}]}">l 公司简介</div>
                     </div>
                     <div class="mw-16">
-                        <div class="fa-an-l" data-animal="{animal:[{name:'fadeInRight',delay:1,duration:1.6}]}">江晓阳</div>
+                        <div class="fa-an-l" data-animal="{animal:[{name:'fadeInRight',delay:1,duration:1.6}]}" >江晓阳</div>
                     </div>
                 </div>
             </section>
             <section class="swiper-slide maka-page-1">
                 <div class="page-bg-1"></div>
                 <div class="maka-eleCanvas maka-eleCanvas-1">
-                    <div class="tw-a" data-animal="{animal:[{names:'fadeInNormal 1000ms ease 600ms both paused'}]}"></div>
+                        <div class="tw-a" data-animal="{animal:[{names:'fadeInNormal 1000ms ease 600ms both paused'}]}"></div>
                     <div class="tw-0">
                         <div class="tw-b" data-animal="{animal:[{names:'fadeInLeft 2000ms ease 1200ms both paused'}]}"></div>
                     </div>
@@ -211,7 +210,7 @@
             </section>
             <section class="swiper-slide maka-page-3">
                 <div class="page-bg-3">
-                    <img src="images/0a_90Q.src" style="position: absolute; width: 423.492px; height: 667px; top: 0px; left: 0px; -webkit-user-drag: none; user-select: none; opacity: 1;">
+                  <img src="images/0a_90Q.src" style="position: absolute; width: 423.492px; height: 667px; top: 0px; left: 0px; -webkit-user-drag: none; user-select: none; opacity: 1;">
                 </div>
                 <div class="maka-eleCanvas maka-eleCanvas-3">
                     <div class="f-0">
@@ -292,8 +291,7 @@
                         <div class="l-h" data-animal="{animal:[{names:'zoomIn 1000ms ease 1300ms both running'}]}"></div>
                     </div>
                     <div class="l-8">
-                        <div class="l-j" data-animal="{animal:[{names:'fadeInUp 1000ms ease 1800ms both running'}]}">
-                            什么公司<br>电话：020-33338888 <br>微信：123456789
+                        <div class="l-j" data-animal="{animal:[{names:'fadeInUp 1000ms ease 1800ms both running'}]}">什么公司<br>电话：020-33338888 <br>微信：123456789
                         </div>
                     </div>
                 </div>
@@ -303,44 +301,44 @@
             <img src="images/up-dow.png">
         </div>
     </div>
-    <script type="text/javascript">
-        var vFilters = [".swiper-slide.maka-page-0", ".swiper-slide.maka-page-1", ".swiper-slide.maka-page-2", ".swiper-slide.maka-page-3", ".swiper-slide.maka-page-4", ];
-        var vAnimar = null;
-        window.onload = function () {
-            vAnimar = new Tools.Animals({ filters: vFilters });
-            //开始执行
-            vAnimar.Start(vFilters[0]);
-        }
+    <script type = "text/javascript">
+    var vFilters = [".swiper-slide.maka-page-0", ".swiper-slide.maka-page-1", ".swiper-slide.maka-page-2", ".swiper-slide.maka-page-3", ".swiper-slide.maka-page-4", ];
+    var vAnimar = null;
+    window.onload = function () {
+        vAnimar = new Tools.Animals({ filters: vFilters });
+        //开始执行
+        vAnimar.Start(vFilters[0]);
+    }
 
-        scaleW = window.innerWidth / 320;
-        scaleH = window.innerHeight / 480;
-        var resizes = document.querySelectorAll('.resize');
-        for (var j = 0; j < resizes.length; j++) {
-            resizes[j].style.width = parseInt(resizes[j].style.width) * scaleW + 'px';
-            resizes[j].style.height = parseInt(resizes[j].style.height) * scaleH + 'px';
-            resizes[j].style.top = parseInt(resizes[j].style.top) * scaleH + 'px';
-            resizes[j].style.left = parseInt(resizes[j].style.left) * scaleW + 'px';
+    scaleW = window.innerWidth / 320;
+    scaleH = window.innerHeight / 480;
+    var resizes = document.querySelectorAll('.resize');
+    for (var j = 0; j < resizes.length; j++) {
+        resizes[j].style.width = parseInt(resizes[j].style.width) * scaleW + 'px';
+        resizes[j].style.height = parseInt(resizes[j].style.height) * scaleH + 'px';
+        resizes[j].style.top = parseInt(resizes[j].style.top) * scaleH + 'px';
+        resizes[j].style.left = parseInt(resizes[j].style.left) * scaleW + 'px';
 
+    }
+    var scales = document.querySelectorAll('.txt');
+    for (var i = 0; i < scales.length; i++) {
+        ss = scales[i].style;
+        ss.webkitTransform = ss.MsTransform = ss.msTransform = ss.MozTransform = ss.OTransform = ss.transform = 'translateX(' + scales[i].offsetWidth * (scaleW - 1) / 2 + 'px) translateY(' + scales[i].offsetHeight * (scaleH - 1) / 2 + 'px)scaleX(' + scaleW + ') scaleY(' + scaleH + ') ';
+    }
+    var mySwiper = new Swiper('.swiper-container', {
+        direction: 'vertical',
+        pagination: '.swiper-pagination',
+        mousewheelControl: true,
+        onInit: function (swiper) {
+            swiperAnimateCache(swiper);
+            swiperAnimate(swiper);
+        },
+        onSlideChangeEnd: function (swiper) {
+            //执行动画
+            vAnimar.Start(vFilters[swiper.realIndex])
+            swiperAnimate(swiper);
         }
-        var scales = document.querySelectorAll('.txt');
-        for (var i = 0; i < scales.length; i++) {
-            ss = scales[i].style;
-            ss.webkitTransform = ss.MsTransform = ss.msTransform = ss.MozTransform = ss.OTransform = ss.transform = 'translateX(' + scales[i].offsetWidth * (scaleW - 1) / 2 + 'px) translateY(' + scales[i].offsetHeight * (scaleH - 1) / 2 + 'px)scaleX(' + scaleW + ') scaleY(' + scaleH + ') ';
-        }
-        var mySwiper = new Swiper('.swiper-container', {
-            direction: 'vertical',
-            pagination: '.swiper-pagination',
-            mousewheelControl: true,
-            onInit: function (swiper) {
-                swiperAnimateCache(swiper);
-                swiperAnimate(swiper);
-            },
-            onSlideChangeEnd: function (swiper) {
-                //执行动画
-                vAnimar.Start(vFilters[swiper.realIndex])
-                swiperAnimate(swiper);
-            }
-        })
+    })
     </script>
 </body>
 
