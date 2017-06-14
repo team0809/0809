@@ -8,6 +8,7 @@
   val:'hello',     //加载动画时 给当前标签赋值 (可不填)
   valAttr:'text', //给当前标签哪个属性赋值 可填值为 text(文本-默认)/src(图片路径)/backgroundImg(背景图片) (可不填)
   style:'color:red;font-size:16px;', //运行动画时给当前标签添加的样式
+  visibility:'visibility', //运行动画之前 改元素不做隐藏操作
   animal:     //该标签运行的动画集合
   [
    {
