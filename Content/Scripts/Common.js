@@ -124,7 +124,7 @@
     //动画执行器
     vTools.Animals = function (voption) {
 
-        var currentData = null, currentIndex = 0, currentDom = null, idPrefix = 'animal-id-', option = { filters: ["html"], dataArry: [] },filterModel, vself = this;
+        var currentData = null, currentIndex = 0, currentDom = null, idPrefix = 'animal-id-', option = { filters: ["html"], dataArry: [] }, filterModel, vself = this, vData = null;
 
         option = $.extend(option, voption);
 
@@ -243,14 +243,17 @@
                 if (animatedArry[showIndex].name)
                     dom.addClass("animated " + animatedArry[showIndex].name);
                 else if (animatedArry[showIndex].names) //多动画组合
-                    dom.css("animation", animatedArry[showIndex].names);
+                {
+                    dom[0].style.animation = animatedArry[showIndex].names;
+                    if (dom[0].style.animation != animatedArry[showIndex].names)
+                        console.error("标签ID为：" + dom[0].id + " 的动画赋值(" + animatedArry[showIndex].names + ")无效");
+                }
+
 
                 //渲染添加动画样式
                 dom.one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function () {
                     if (animatedArry == null || animatedArry[showIndex] == null)
                         return;
-
-                    console.log(dom.attr("id") + "_" + showIndex);
 
                     //动画不重复 则删除该动画
                     if (animatedArry[showIndex].infinite == undefined || animatedArry[showIndex].infinite == false) {
@@ -258,7 +261,7 @@
                         if (animatedArry[showIndex].name)
                             dom.removeClass("animated " + animatedArry[showIndex].name);
                         else
-                            dom.css("animation", "");
+                            dom[0].style.animation = null;
                     }
 
                     //动画的运行时间
@@ -273,7 +276,6 @@
                     //继续显示动画
                     _raself._ShowAnimal(showIndex);
                 });
-
             }
 
             //设置动画运行的时间
@@ -287,9 +289,9 @@
                     });
                 } else {
                     dom.css({
-                        "-moz-animation-duration": "",
-                        "-webkit-animation-duration": "",
-                        "animation-duration": "",
+                        "-moz-animation-duration": null,
+                        "-webkit-animation-duration": null,
+                        "animation-duration": null,
                     });
                 }
             }
@@ -324,6 +326,20 @@
             _InitAnimal();
         }
 
+        //隐藏动画数据
+        var _HideAnimalItem = function () {
+
+            if (vData == null || vData.length == 0)
+                return;
+
+            //执行数据
+            for (var i in vData) {
+                //检查是否设置运行动画之前不显示
+                if (vData[i].visibility == undefined)
+                    document.getElementById(vData[i].id).style.visibility = "hidden";
+            }
+        }
+
         //加载过滤器
         var _InitFilter = function () {
 
@@ -337,8 +353,8 @@
                 else
                     filterIndex = option.filters.indexOf(filter);
 
-                //返回已经加载的数据
-                if (vDataArry[filterIndex] != undefined)
+                //返回已经加载的数据 第一个和最后一个重选加载
+                if (vDataArry[filterIndex] != undefined && filterIndex != 0 && filterIndex != option.filters.length - 1)
                     return vDataArry[filterIndex];
 
                 //获取当前page的值
@@ -348,7 +364,7 @@
                     vDataArry[filterIndex] = [];
 
                 //初始加载数据
-                vTools.GetDomData(vDataArry[filterIndex], $(option.filters[filterIndex] + ":first").find("*[data-animal]"), "data-animal", idPrefix);
+                vTools.GetDomData(vDataArry[filterIndex], $(option.filters[filterIndex] + ".swiper-slide-active").find("*[data-animal]"), "data-animal", idPrefix);
 
                 //排序
                 vDataArry[filterIndex] = vTools.Sort(vDataArry[filterIndex], "animalsort");
@@ -360,12 +376,12 @@
         //开始执行
         vself.Start = function (filter) {
 
-            //初始加载数据
-            //vTools.GetDomData(vData, $(option.filters[filterIndex]+":first").find("*[data-animal]"), "data-animal", idPrefix);
+            //隐藏动画元素
+            // _HideAnimalItem();
 
             //排序
             vData = filterModel.GetData(filter);
-             
+
             //执行数据
             for (var i in vData) {
                 _InitItem(vData[i]);
@@ -375,6 +391,8 @@
         //加载数据
         filterModel = new _InitFilter();
 
+        //隐藏所有的动画
+        $("*[data-animal]").css("visibility", "hidden");
     };
 
     //获取数据
@@ -442,8 +460,6 @@
         if (document.getElementById(vId) != null)
             return vTools.UUID();
 
-
-
         //当前数据中是否有改标识ID
         if (vData != undefined && vTools.Filter(vData, { id: vId }).First().data != null)
             return vTools.UUID();
@@ -475,8 +491,16 @@
             //过滤器
             option.filter = vfilter || 'html';
 
+            //获取选择器对象
+            var jqueryDom = typeof (option.filter) == "object" ? option.filter : $(option.filter);
+
+            option.data = [];
+
             //初始加载数据
-            vTools.GetDomData(option.data, $(option.filter).find("*[data-edit]"), "data-edit", idPrefix);
+            vTools.GetDomData(option.data, jqueryDom.find("*[data-edit]"), "data-edit", idPrefix);
+
+            //排序
+            vTools.Sort(option.data, 'sort');
 
             //执行一次
             //SetCurrent(0);
@@ -581,8 +605,7 @@
             //编辑按钮是否可以点击
             for (var key in currentData.edit) {
                 switch (currentData.edit[key]) {
-                    case "src":
-                    case "background-image": vEditorImg.removeClass("disabled"); break;
+                    case "img": vEditorImg.removeClass("disabled"); break;
                     case "color": vEditorFontColor.removeClass("disabled"); break;
                     case "text": vEditorText.removeClass("disabled"); break;
                     case "del": vEditorDel.removeClass("disabled"); break;
@@ -662,7 +685,7 @@
             //当截图完成
             var onCutImg = function (imgdata) {
 
-                if (currentData.edit.indexOf('src') != -1) {
+                if (currentDom.is("img")) {
                     currentDom.attr("src", imgdata);
                 } else {
                     currentDom.css("backgroundImage", imgdata);
@@ -716,12 +739,14 @@
 
             var validate = currentData.validate;
 
+            val = $.trim(val);
+
             //获取中文字符
             var cArr = val.match(/[^\x00-\xff]/ig);
             //长度
-            var valLength = val.length + (cArr == null ? 0 : cArr.length);
+            var valLength = (val.length + (cArr == null ? 0 : cArr.length)) / 2;
 
-            if (validate.checknull && $.trim(val) == "") {
+            if (validate.checknull && val == "") {
                 //提示
                 layer.msg("不能设置空的字符");
                 return false;
@@ -735,7 +760,7 @@
 
             if (validate.maxlen && validate.maxlen < valLength) {
                 //提示
-                layer.msg("需小于" + validate.minlen + "字符长度");
+                layer.msg("需小于" + validate.maxlen + "字符长度");
                 return false;
             }
 
@@ -789,7 +814,7 @@
             //弹出层
             var layindex = layer.open({
                 type: 1,
-                content: '<div style="padding: 0.2rem;background-color: #5e5e5e;overflow: hidden;"><i class="iconfont icon-xiugai" id="i-icon-back" style="font-size:1.0rem; margin:0.2rem;color:white;display:inline-block;"></i>' +
+                content: '<div id="div-layer-title" style="padding: 0.2rem;background-color: #5e5e5e;overflow: hidden;"><i class="iconfont icon-fanhui" id="i-icon-back" style="font-size:1.0rem; margin:0.2rem;color:white;display:inline-block;"></i>' +
                          '<button class="btn btn-info pull-right" id="btn-id-cut">裁剪</button></div><div><img src="' + option.src + '" style="width:100%;" id="img-id-cut"></div>',
                 style: 'position:fixed; left:0; top:0; width:100%; height:100%; border: none; -webkit-animation-duration: .5s; animation-duration: .5s;'
             });
@@ -813,10 +838,15 @@
 
         //加载Cropper对象
         var LoadCropper = function () {
+
+            var vminWidth = $(".layui-m-layershade").width(), vminHeight = $(".layui-m-layershade").height() - $("#div-layer-title").height() - 5;
+
             //Cropper对象
             self.CroModel = $('#img-id-cut').cropper({
                 viewMode: 1,
                 dragMode: 'move',
+                minContainerWidth: vminWidth,
+                minContainerHeight: vminHeight,
                 aspectRatio: option.width / option.height,
                 restore: false,
                 guides: false,
@@ -853,16 +883,16 @@
         option = $.extend(option, voption);
 
         //加载播放器
-        self.loadAudio = function (src) {
-            if (src != '' && vAudioDom == null) {
-                vAudioDom = document.createElement("audio");
-                vAudioDom.src = src;
-                //循环播放
-                vAudioDom.loop = true;
-            } else {
-                vAudioDom.src = src;
-            }
-            self.palyAudio(true);
+        self.loadAudio = function (src) { 
+                if (src != '' && vAudioDom == null) {
+                    vAudioDom = document.createElement("audio");
+                    vAudioDom.src = src;
+                    //循环播放
+                    vAudioDom.loop = true;
+                } else {
+                    vAudioDom.src = src;
+                }
+                self.palyAudio(true); 
         }
 
         //播放或暂停
@@ -920,14 +950,48 @@
         //当选择歌曲后
         win.OnChoiseSong = function (song) {
             //更换歌曲
-            if (song != undefined)
+            if (song != undefined) {
+                //切换歌曲
                 self.loadAudio(Host.WYJH5Size + song.url.replace(/-/g, '/'));
+                //设置值
+                $("#div-id-alldata").attr("data-music", song.url);
+            }
             //关闭层
             layer.closeAll();
         }
     }
 
+    //Post提交
+    vTools.Post = function (url, data, success, voption) {
+        //完成
+        var complete = function () {
+            layer.close(lindex);
+        }
+
+
+        var optino = $.extend({ complete: complete, loading: true, type: 'POST' }, voption);
+
+        var lindex = -1;
+
+        //显示加载层
+        if (optino.loading)
+            lindex = layer.load();
+
+
+        $.ajax({
+            url: url,
+            data: data,
+            type: optino.type,
+            success: success,
+            complete: optino.complete,
+            error: function () {
+                layer.msg("未完成处理，请检查您的网络！");
+            }
+        });
+    }
+
     win.Tools = vTools;
+
 })(window);
 
 

@@ -1,0 +1,61 @@
+在标签属性上加上  data-edit 属性  如：<div data-edit="{edit:['text','color','img'],validate:{minlen:2,maxlen:10},sort:3}"></div>
+
+
+说明
+{
+  id:'animal-id-1', //标签ID 若未赋值程序加载时会自动赋值 (可不填)
+  edit:['text','color','img'],  //编辑属性，至少填写一个，text:编辑文本，color:字体颜色，img:更改图片路径或者背景图片路径
+  validate:{			//验证属性，（可不填写)
+	     min:2,		//最少输入的中文字符数（2个英文或数字等于一个中文)
+	     max:10		//最多输入的中文字符数
+ 	   }, 
+  sort:1, //编辑顺序（可不填，默认以html标签顺序
+}
+
+
+
+
+
+
+
+
+//使用
+1.引用Content/lib文件加下 Layer/mobile/layer.js插件和Cropper/cropper.js、 Cropper/cropper.min.css插件
+
+2.引用Content/Css文件下 main.css 文件
+
+3.嵌入如下Html
+<div class="tools" style="bottom:0px;top:initial;"> 
+    <input type="color" id="inp-edit-color" style="visibility:hidden;" />
+    <div class="edit">
+        <i class="iconfont icon-tijiao" onclick="SaveEditor()"></i>
+        <ul class="menu">
+            <li class="prev text-center"> <i class="iconfont icon-shangyige" id="id-editor-prve" onclick="vEditor.EditorClick('prve', this)"></i> </li>
+            <li class="edit-btn">
+                <div class="col-xs-3"> <i class="iconfont icon-xiugai" id="id-editor-text" onclick="vEditor.EditorClick('text', this)"></i> </div>
+                <div class="col-xs-3"> <i class="iconfont icon-tupian" id="id-editor-img" onclick="vEditor.EditorClick('img', this)"></i> </div>
+                <div class="col-xs-3"> <i class="iconfont icon-shanchu" id="id-editor-del" onclick="vEditor.EditorClick('del', this)"></i> </div>
+                <div class="col-xs-3"> <i class="iconfont icon-zitiyanse" id="id-editor-fontcolor" onclick="vEditor.EditorClick('color', this)"></i> </div>
+            </li>
+            <li class="next text-center"> <i class="iconfont icon-xiayige" id="id-editor-next" onclick="vEditor.EditorClick('next', this)"></i> </li>
+        </ul>  
+    </div>
+    <div class="opacity-layer"></div>
+</div>
+
+4.插入JS代码
+
+ //Jquery选择器
+ var vFilter=".swiper-slide.temp-page-0";
+ //初始化
+ var vEditor = new Tools.Editor();
+//加载编辑器
+ vEditor.Init(vFilter);
+
+
+//结合Swiper使用 onSlideChangeEnd 为Swiper拖动结束事件
+ onSlideChangeEnd: function (swiper) { 
+  //加载编辑器 
+  vEditor.Init($(swiper.slides[swiper.activeIndex]));
+ 
+ }
