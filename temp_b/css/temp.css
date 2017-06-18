@@ -669,7 +669,7 @@
 
 .temp-page-3 .temp-box .box-a {
     width: 100%;
-    height: 241px;
+    height: 10rem;
     left: 0px;
     top: 0px;
     position: absolute;
@@ -686,6 +686,19 @@
     border-radius: 0px;
     box-shadow: black 0px 0px 0px;
     background-image: url("../images/8049ec62dfa8.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 0px 0px;
+}
+
+.temp-page-3 .temp-box .t-b-a-4 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 0px;
+    box-shadow: black 0px 0px 0px;
+    background-image: url("../images/f41e06442e1623ed039a658aae4c4271.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: 0px 0px;
@@ -831,41 +844,228 @@
 }
 
 .temp-page-4 .temp-box {
-    width: 375px;
-    height: 590.625px;
+    width: 100%;
+    height: 100%;
     left: 0px;
-    top: 38.1875px;
+    top: 0;
     position: absolute;
 }
 
 .temp-page-4 .temp-box .box-a {
+    width: 131px;
+    height: 131px;
+    left: 50%;
+    top: 6rem;
+    margin-left: -65px;
     position: absolute;
-    width: 375px;
-    height: 183px;
-    top: 218px;
-    left: 0px;
     opacity: 1;
     transform: rotate(0deg);
+    cursor: pointer;
 }
 
 .temp-page-4 .temp-box .t-b-a {
     position: absolute;
     width: 100%;
     height: 100%;
+    overflow: hidden;
+    border-radius: 0px;
+    box-shadow: black 0px 0px 0px;
 }
 
-.temp-page-4 .temp-box .box-b {
+.temp-page-4 .temp-box .box-c {
     position: absolute;
-    width: 78px;
+    width: 100%;
     height: auto;
-    top: 85px;
-    left: 3.8rem;
+    top: 11rem;
     transform: rotate(0deg);
     transform-origin: center center 0px;
     opacity: 1;
 }
 
+.temp-page-4 .temp-box .t-b-c {
+    width: 100%;
+    height: auto;
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+    font-weight: normal;
+    text-decoration: none;
+    line-height: 1.2;
+    border-style: none;
+    border-color: rgb(0, 0, 0);
+    border-width: 0px;
+    font-style: normal;
+    border-radius: 0px;
+    box-shadow: black 0px 0px 0px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.temp-page-4 .temp-box .box-d {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 13rem;
+    left: -1px;
+    text-align: center;
+    transform: rotate(0deg);
+    transform-origin: center center 0px;
+    opacity: 1;
+}
+
+.temp-page-4 .temp-box .t-b-d {
+    width: 100%;
+    height: auto;
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 1.8;
+    border-style: none;
+    border-color: rgb(0, 0, 0);
+    border-width: 0px;
+    font-style: normal;
+    border-radius: 0px;
+    box-shadow: black 0px 0px 0px;
+    letter-spacing: -1px;
+}
+
+.temp-page-4 .temp-box .box-b {
+    position: absolute;
+    width: 10rem;
+    height: 2rem;
+    left: 50%;
+    transform: rotate(0deg);
+    transform-origin: center center 0px;
+    opacity: 1;
+    background: rgb(0, 190, 242);
+    top: 2rem;
+    margin-left: -5rem;
+    line-height: 1.8rem;
+}
+
 .temp-page-4 .temp-box .t-b-b {
+    width: 100%;
+    height: auto;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    border-style: none;
+    border-color: rgb(0, 0, 0);
+    border-width: 0px;
+    font-style: normal;
+    border-radius: 0px;
+    box-shadow: black 0px 0px 0px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    letter-spacing: -1px;
+    font-family: makaOSS1471939854990;
+}
+
+.temp-page-5 {
+    z-index: 998;
+    display: block;
+    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    opacity: 1;
+}
+
+.temp-page-5 .temp-bg-1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+}
+
+.temp-page-5 .temp-box {
+    width: 100%;
+    height: auto;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+}
+
+.temp-page-5 .box-a {
+    width: 100%;
+    height: 324px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    opacity: 1;
+    transform: rotate(0deg);
+    cursor: pointer;
+}
+
+.temp-page-5 .temp-box .t-b-a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 0px;
+    box-shadow: black 0px 0px 0px;
+    background-image: url("../images/0c0cdf835f34e7e129abf04702dc7932.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 0px 0px;
+}
+
+.temp-page-5 .box-b {
+    position: absolute;
+    width: 330px;
+    height: auto;
+    top: 355px;
+    left: 23px;
+    transform: rotate(0deg);
+    transform-origin: center center 0px;
+    opacity: 1;
+}
+
+.temp-page-5 .temp-box .t-b-b {
+    width: 100%;
+    height: auto;
+    color: rgb(119, 119, 119);
+    font-size: 14px;
+    text-align: left;
+    font-weight: normal;
+    text-decoration: none;
+    line-height: 2;
+    border-style: none;
+    border-color: rgb(0, 0, 0);
+    border-width: 0px;
+    font-style: normal;
+    border-radius: 0px;
+    box-shadow: black 0px 0px 0px;
+    font-family: makaOSS1471933535670;
+}
+
+.temp-page-5 .box-c {
+    position: absolute;
+    width: 134px;
+    height: 43px;
+    top: 302px;
+    left: 21px;
+    transform: rotate(0deg);
+}
+
+.temp-page-5 .temp-box .t-b-c {
+    position: absolute;
+    width: 134px;
+    height: 43px;
+}
+
+.temp-page-5 .box-d {
+    position: absolute;
+    width: 87px;
+    height: auto;
+    top: 311px;
+    left: 44px;
+    transform: rotate(0deg);
+    transform-origin: center center 0px;
+    opacity: 1;
+}
+
+.temp-page-5 .temp-box .t-b-d {
     width: 100%;
     height: auto;
     color: rgb(255, 255, 255);
@@ -880,23 +1080,179 @@
     font-style: normal;
     border-radius: 0px;
     box-shadow: black 0px 0px 0px;
-    word-wrap: break-word;
-    white-space: pre-wrap;
     letter-spacing: -1px;
-    font-family: makaOSS1471939854990;
+    font-family: makaOSS1471931330381;
 }
 
-.temp-page-4 .temp-box .t-b-c {
+.temp-page-6 {
+    z-index: 996;
+    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    opacity: 1;
+    display: block;
+}
+
+.temp-page-6 .temp-bg-3 {
     position: absolute;
-    width: 134px;
-    height: 43px;
-    top: 77px;
-    left: 3rem;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+}
+
+.temp-page-6 .temp-box {
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+}
+
+.temp-page-6 .temp-box .box-a {
+    width: 100%;
+    height: 10rem;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    opacity: 1;
+    transform: rotate(0deg);
+    cursor: pointer;
+}
+
+.temp-page-6 .temp-box .t-b-a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 0px;
+    box-shadow: black 0px 0px 0px;
+    background-image: url("../images/8049ec62dfa8.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 0px 0px;
+}
+
+.temp-page-6 .temp-box .t-b-a-4 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 0px;
+    box-shadow: black 0px 0px 0px;
+    background-image: url("../images/f41e06442e1623ed039a658aae4c4271.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 0px 0px;
+}
+
+.temp-page-6 .temp-box .box-b {
+    position: absolute;
+    width: 83px;
+    height: 9px;
+    top: 402px;
+    left: 17px;
     transform: rotate(0deg);
 }
 
-.temp-page-4 .temp-box .box-c {
+.temp-page-6 .temp-box .t-b-b {
+    position: absolute;
+    width: 83px;
+    height: 9px;
+}
+
+.temp-page-6 .temp-box .box-c {
     position: absolute;
     width: 134px;
     height: 43px;
+    top: 222px;
+    left: 20px;
+    transform: rotate(0deg);
+}
+
+.temp-page-6 .temp-box .t-b-c {
+    position: absolute;
+    width: 134px;
+    height: 43px;
+}
+
+.temp-page-6 .temp-box .box-d {
+    position: absolute;
+    width: 87px;
+    height: auto;
+    top: 230px;
+    left: 43px;
+    transform: rotate(0deg);
+    transform-origin: center center 0px;
+    opacity: 1;
+}
+
+.temp-page-6 .temp-box .t-b-d {
+    width: 100%;
+    height: auto;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    text-align: left;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 1.5;
+    border-style: none;
+    border-color: rgb(0, 0, 0);
+    border-width: 0px;
+    font-style: normal;
+    border-radius: 0px;
+    box-shadow: black 0px 0px 0px;
+    letter-spacing: -1px;
+    font-family: makaOSS1471935589340;
+}
+
+.temp-page-6 .temp-box .box-e {
+    width: 80px;
+    height: 94px;
+    left: 19px;
+    top: 295px;
+    position: absolute;
+    opacity: 1;
+    transform: rotate(0deg);
+    cursor: pointer;
+}
+
+.temp-page-6 .temp-box .t-b-e {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 0px;
+    box-shadow: black 0px 0px 0px;
+    background-image: url("../images/88c8e0fc392663210c9683aaebb63dc1.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 0px 0px;
+}
+
+.temp-page-6 .temp-box .box-f {
+    position: absolute;
+    width: 106px;
+    height: auto;
+    top: 422px;
+    left: 6px;
+    transform: rotate(0deg);
+    transform-origin: center center 0px;
+    opacity: 1;
+}
+
+.temp-page-6 .temp-box .t-b-f {
+    width: 100%;
+    height: auto;
+    color: rgb(51, 51, 51);
+    font-size: 16px;
+    text-align: center;
+    font-weight: normal;
+    text-decoration: none;
+    line-height: 1.5;
+    border-style: none;
+    border-color: rgb(0, 0, 0);
+    border-width: 0px;
+    font-style: normal;
+    border-radius: 0px;
+    box-shadow: black 0px 0px 0px;
+    font-family: makaOSS1471937140297;
 }
