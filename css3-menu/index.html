@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html class=''>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel='stylesheet prefetch' href='font-awesome-4.3.0/css/font-awesome.min.css'>
+    <script src="https://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+    <style class="cp-pen-styles">
+    body {
+        background: green;
+    }
+    
+    * {
+        text-decoration: none;
+    }
+    
+    .app-memu {
+        z-index: 3;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -12rem;
+        margin-top: -12rem;
+        width: 24rem;
+        height: 24rem;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        opacity: 0;
+        -webkit-transform: scale(0.7);
+        -ms-transform: scale(0.7);
+        transform: scale(0.7);
+        -webkit-transition: opacity 0.4s, -webkit-transform 0.4s;
+        transition: opacity 0.4s, transform 0.4s;
+    }
+    
+    .menu_opener {
+        display: none;
+    }
+    
+    .active.app-memu {
+        opacity: 1
+    }
+    
+    .active.link_one {
+        /* top: 34%; */
+        top: 20%
+    }
+    
+    .active.link_two {
+        left: 80%;
+    }
+    
+    .active.link_three {
+        /* top: 66%; */
+        top: 80%;
+    }
+    
+    .active.link_four {
+        left: 20%;
+    }
+    
+    .active.barre_hamburger {
+        opacity: 0;
+    }
+    
+    .active.menu_opener_label:after {
+        transform: rotate(45deg);
+        top: 70px;
+    }
+    
+    .active.menu_opener_label:before {
+        transform: rotate(-45deg);
+        top: 70px;
+    }
+    
+    .menu_opener_label {
+        background: #00B0F0;
+        width: 80px;
+        height: 80px;
+        display: block;
+        cursor: pointer;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 10;
+        margin-left: -40px;
+        margin-top: -40px;
+        line-height: 80px;
+        text-align: center;
+    }
+    
+    .barre_hamburger {
+        width: 50px;
+        height: 10px;
+        position: absolute;
+        top: 270px;
+        left: 250px;
+        background: #fff;
+        z-index: 20;
+        -webkit-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+    }
+    
+    .link_general {
+        width: 80px;
+        height: 80px;
+        display: block;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background: #ecf0f1;
+        -webkit-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+        text-align: center;
+        margin-left: -40px;
+        margin-top: -40px;
+    }
+    
+    .link_one {
+        background: #77C34F;
+    }
+    
+    .link_two {
+        background: #8192D6;
+    }
+    
+    .link_three {
+        background: #D9B3E6;
+    }
+    
+    .link_four {
+        background: #57D2F7;
+    }
+    
+    .app-memu i,
+    .app-memu em {
+        display: block;
+        color: #fff;
+        font-size: 22px;
+        font-style: normal;
+    }
+    
+    .app-memu em {
+        font-size: 16px;
+    }
+    
+    .app-memu i {
+        font-size: 32px;
+        color: #fff;
+        margin-top: 10px;
+    }
+    
+    .fa.din {
+        display: inline-block;
+        margin-top: 17px;
+        font-size: 42px
+    }
+    
+    .menu_opener_label.left-poa {
+        left: 0;
+        margin-left: 0;
+        width: 50px;
+        height: 50px;
+        top: 50%;
+        margin-top: -25px;
+        line-height: 50px;
+    }
+    
+    .menu_opener_label.left-poa .fa.din {
+        display: inline-block;
+        margin-top: 10px;
+        font-size: 30px;
+        color: #fff;
+    }
+    
+    .menu-start {
+        -webkit-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+    }
+    </style>
+</head>
+
+<body>
+    <label for="menu_opener_id" class="menu_opener_label left-poa memu-start">
+        <i class="fa fa-bars din"></i>
+    </label>
+    <div class="app-memu">
+        <input type="checkbox" id="menu_opener_id" class="menu_opener">
+        <label for="menu_opener_id" class="menu_opener_label memu-close">
+            <i class="fa fa-close din"></i>
+        </label>
+        <a href="#" class="link_one link_general active">
+            <i class="fa fa-comments"></i>
+            <em>你妹的</em>
+        </a>
+        <a href="#" class="link_two link_general active">
+            <i class="fa fa-comments"></i>
+            <em>你妹的</em>
+        </a>
+        <a href="#" class="link_three link_general active">
+            <i class="fa fa-comments"></i>
+            <em>你妹的</em>
+        </a>
+        <a href="#" class="link_four link_general active">
+            <i class="fa fa-comments"></i>
+            <em>你妹的</em>
+        </a>
+        </input>
+    </div>
+</body>
+<script>
+$(function() {
+    $('.memu-start').click(function() {
+        $(this).hide();
+        $('.app-memu').css({
+            opacity: 1
+        })
+    })
+    $('.memu-close').click(function() {
+        $('.memu-start').show();
+        $('.app-memu').css({
+            opacity: 0
+        })
+    })
+
+})
+</script>
+
+</html>
